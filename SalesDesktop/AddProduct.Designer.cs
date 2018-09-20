@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.groupDropdown = new System.Windows.Forms.ComboBox();
@@ -42,8 +44,20 @@
             this.btnAddGroup = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtGroup = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewProductGroup = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.dataGridViewItems = new System.Windows.Forms.DataGridView();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductGroup)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -204,12 +218,100 @@
             this.txtGroup.Size = new System.Drawing.Size(311, 26);
             this.txtGroup.TabIndex = 1;
             // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.groupBox3);
+            this.panel1.Location = new System.Drawing.Point(445, 1);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(209, 355);
+            this.panel1.TabIndex = 9;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.dataGridViewProductGroup);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(4, 15);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(202, 328);
+            this.groupBox3.TabIndex = 9;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Product Groups";
+            // 
+            // dataGridViewProductGroup
+            // 
+            this.dataGridViewProductGroup.AllowUserToAddRows = false;
+            this.dataGridViewProductGroup.AllowUserToDeleteRows = false;
+            this.dataGridViewProductGroup.AllowUserToOrderColumns = true;
+            this.dataGridViewProductGroup.AllowUserToResizeColumns = false;
+            this.dataGridViewProductGroup.AllowUserToResizeRows = false;
+            this.dataGridViewProductGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewProductGroup.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewProductGroup.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewProductGroup.Name = "dataGridViewProductGroup";
+            this.dataGridViewProductGroup.RowHeadersVisible = false;
+            this.dataGridViewProductGroup.Size = new System.Drawing.Size(190, 303);
+            this.dataGridViewProductGroup.TabIndex = 0;
+            this.dataGridViewProductGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewProductGroup_CellClick);
+            // 
+            // panel2
+            // 
+            this.panel2.AutoScroll = true;
+            this.panel2.Controls.Add(this.groupBox4);
+            this.panel2.Location = new System.Drawing.Point(660, 1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(397, 355);
+            this.panel2.TabIndex = 10;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.dataGridViewItems);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.Location = new System.Drawing.Point(9, 15);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(385, 328);
+            this.groupBox4.TabIndex = 9;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Items";
+            // 
+            // dataGridViewItems
+            // 
+            this.dataGridViewItems.AllowUserToAddRows = false;
+            this.dataGridViewItems.AllowUserToDeleteRows = false;
+            this.dataGridViewItems.AllowUserToOrderColumns = true;
+            this.dataGridViewItems.AllowUserToResizeColumns = false;
+            this.dataGridViewItems.AllowUserToResizeRows = false;
+            this.dataGridViewItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewItems.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewItems.Location = new System.Drawing.Point(6, 19);
+            this.dataGridViewItems.Name = "dataGridViewItems";
+            this.dataGridViewItems.RowHeadersVisible = false;
+            this.dataGridViewItems.Size = new System.Drawing.Size(373, 303);
+            this.dataGridViewItems.TabIndex = 0;
+            this.dataGridViewItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewItems_CellContentClick);
+            // 
             // AddProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(452, 356);
+            this.ClientSize = new System.Drawing.Size(1060, 356);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -220,6 +322,12 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProductGroup)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewItems)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -240,5 +348,11 @@
         private System.Windows.Forms.Button btnAddGroup;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtGroup;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView dataGridViewProductGroup;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView dataGridViewItems;
     }
 }

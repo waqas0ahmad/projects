@@ -1,0 +1,1 @@
+﻿select p.PRODUCT_NAME,od.QUANTITY,od.PRICE,od.TOTAL_PRICE, od.CREATED_DATE as ORDER_DATE from ORDER_DETAIL od inner join PRODUCTS p on p.PRODUCT_ID=od.ORDER_ID where ISNULL(od.deleted,0)=0 and ISNULL(p.DELETED,0)=0 and od.CREATED_DATE between''and''

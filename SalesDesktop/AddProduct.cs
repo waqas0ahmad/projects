@@ -18,12 +18,14 @@ namespace SalesDesktop
             access = new DataAccess();
             InitializeComponent();
             populateGroupDropdown();
+            populateGroupDataGridView();
+            populateProductDataGridView();
         }
         private void btnAddGroup_Click(object sender, EventArgs e)
         {
             try
             {
-                if (txtGroup.Text==null|| txtGroup.Text=="")
+                if (txtGroup.Text == null || txtGroup.Text == "")
                 {
                     MessageBox.Show("Enter group name please.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -32,7 +34,7 @@ namespace SalesDesktop
                 if (access.insertUpdateDelete(query) > 0)
                 {
                     MessageBox.Show("Inserted Successfully", "Success", MessageBoxButtons.OK);
-                    populateGroupDropdown();                    
+                    populateGroupDropdown();
                 }
                 else
                 {
@@ -48,7 +50,7 @@ namespace SalesDesktop
         {
             try
             {
-                if (txtProductName.Text==""|| txtProductName.Text==null)
+                if (txtProductName.Text == "" || txtProductName.Text == null)
                 {
                     MessageBox.Show("Enter product name", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -84,6 +86,108 @@ namespace SalesDesktop
                 groupDropdown.DataSource = access.select(query);
                 groupDropdown.ValueMember = "id";
                 groupDropdown.DisplayMember = "name";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButtons.OK);
+            }
+        }
+        void populateGroupDataGridView()
+        {
+            try
+            {
+                dataGridViewProductGroup.DataSource = null;
+                DataTable dt = access.select("select id,[name] from Item_Group where ISNULL(deleted,0)=0");
+                dt.Columns["id"].ColumnName = "ID";
+                dt.Columns["name"].ColumnName = "Name";
+                dataGridViewProductGroup.DataSource = dt;
+                dataGridViewProductGroup.Columns["ID"].Visible = false;
+                dataGridViewProductGroup.Columns.Add(new DataGridViewButtonColumn()
+                {
+                    Name = "dataGridViewDeleteButtonG",
+                    HeaderText = "delete",
+                    Text = "delete",
+                    ToolTipText = "DELETE",
+                    UseColumnTextForButtonValue = true,
+                    Width=90
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButtons.OK);
+            }
+        }
+        void populateProductDataGridView()
+        {
+            try
+            {
+                dataGridViewItems.DataSource = null;
+                DataTable dt = access.select("select PRODUCT_ID,PRODUCT_NAME,PRODUCT_CODE,PRODUCT_PRICE from PRODUCTS where ISNULL(deleted,0)=0");
+                dt.Columns["PRODUCT_ID"].ColumnName = "ID";
+                dt.Columns["PRODUCT_NAME"].ColumnName = "Name";
+                dt.Columns["PRODUCT_CODE"].ColumnName = "Code";
+                dt.Columns["PRODUCT_PRICE"].ColumnName = "Price";
+                dataGridViewItems.DataSource = dt;
+                dataGridViewItems.Columns["ID"].Visible = false;
+                dataGridViewItems.Columns.Add(new DataGridViewButtonColumn()
+                {
+                    Name = "dataGridViewDeleteButtonI",
+                    HeaderText = "delete",
+                    Text = "delete",
+                    ToolTipText = "DELETE",
+                    UseColumnTextForButtonValue = true,
+                    Width=90
+
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButtons.OK);
+            }
+        }
+
+        private void dataGridViewProductGroup_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == dataGridViewProductGroup.Columns["dataGridViewDeleteButtonG"].Index)
+                {
+                    var id = dataGridViewProductGroup.Rows[e.RowIndex].Cells["id"].Value;
+                    if (access.insertUpdateDelete("update Item_Group set deleted=1 where id='" + id + "'") > 0)
+                    {
+                        if (access.insertUpdateDelete("update PRODUCTS  set deleted=1 where PRODUCT_GROUP_ID='" + id + "'") > 0)
+                        {
+                            MessageBox.Show("Deleted success fully", "deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            populateGroupDataGridView();
+                            populateGroupDropdown();
+                            populateProductDataGridView();
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Exception", MessageBoxButtons.OK);
+            }
+        }
+
+        private void dataGridViewItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == dataGridViewItems.Columns["dataGridViewDeleteButtonI"].Index)
+                {
+                    var id = dataGridViewItems.Rows[e.RowIndex].Cells[1].Value;
+                    if(access.insertUpdateDelete("update PRODUCTS  set deleted=1 where PRODUCT_ID='" + id + "'") > 0)
+                    {
+                        MessageBox.Show("Deleted success fully", "deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        populateGroupDataGridView();
+                        populateGroupDropdown();
+                        populateProductDataGridView();
+                    }
+
+                }
             }
             catch (Exception ex)
             {
