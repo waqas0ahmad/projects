@@ -302,7 +302,7 @@
             this.dataGridViewItems.RowHeadersVisible = false;
             this.dataGridViewItems.Size = new System.Drawing.Size(373, 303);
             this.dataGridViewItems.TabIndex = 0;
-            this.dataGridViewItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewItems_CellContentClick);
+            this.dataGridViewItems.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewItems_CellContentClick);
             // 
             // AddProduct
             // 

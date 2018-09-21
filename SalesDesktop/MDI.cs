@@ -33,7 +33,6 @@ namespace SalesDesktop
         {
             if (Application.OpenForms["DailyReport"] != null)
             {
-
                 Application.OpenForms["DailyReport"].WindowState = FormWindowState.Minimized;
             }
             if (Application.OpenForms["AddProduct"] != null)
@@ -45,6 +44,8 @@ namespace SalesDesktop
                 Form addOrder = new AddOrder();
                 addOrder.MdiParent = this;
                 addOrder.Show();
+                panel2.Controls.Clear();
+                panel2.Controls.Add(addOrder);
             }
             else
             {
@@ -53,6 +54,8 @@ namespace SalesDesktop
                 addOrder.WindowState = FormWindowState.Normal;
                 addOrder.TopMost=true;
                 addOrder.BringToFront();
+                panel2.Controls.Clear();
+                panel2.Controls.Add(addOrder);
             }
             
         }
@@ -80,6 +83,8 @@ namespace SalesDesktop
                 Form addProduct = new AddProduct();
                 addProduct.MdiParent = this;
                 addProduct.Show();
+                panel2.Controls.Clear();
+                panel2.Controls.Add(addProduct);
             }
             else
             {
@@ -88,6 +93,8 @@ namespace SalesDesktop
                 addProduct.TopMost = true;
                 addProduct.WindowState = FormWindowState.Normal;
                 addProduct.BringToFront();
+                panel2.Controls.Clear();
+                panel2.Controls.Add(addProduct);
             }
         }
 
@@ -106,6 +113,8 @@ namespace SalesDesktop
                 Form dailyReport = new DailyReport();
                 dailyReport.MdiParent = this;
                 dailyReport.Show();
+                panel2.Controls.Clear();
+                panel2.Controls.Add(dailyReport);
             }
             else
             {
@@ -114,6 +123,8 @@ namespace SalesDesktop
                 dailyReport.TopMost = true;
                 dailyReport.WindowState = FormWindowState.Normal;
                 dailyReport.BringToFront();
+                panel2.Controls.Clear();
+                panel2.Controls.Add(dailyReport);
             }
         }
     }

@@ -52,6 +52,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtTotalBill = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.grdvitemsGroup = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4.SuspendLayout();
@@ -59,6 +60,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grdvOrder)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdvitemsGroup)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,9 +70,9 @@
             this.panel4.Controls.Add(this.groupBox2);
             this.panel4.Controls.Add(this.groupBox1);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(170, 0);
+            this.panel4.Location = new System.Drawing.Point(181, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(780, 416);
+            this.panel4.Size = new System.Drawing.Size(769, 416);
             this.panel4.TabIndex = 3;
             // 
             // groupBox2
@@ -78,7 +80,7 @@
             this.groupBox2.Controls.Add(this.grdvOrder);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox2.Location = new System.Drawing.Point(362, 12);
+            this.groupBox2.Location = new System.Drawing.Point(354, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(405, 392);
             this.groupBox2.TabIndex = 7;
@@ -174,7 +176,7 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtTotalBill);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBox1.Location = new System.Drawing.Point(27, 12);
+            this.groupBox1.Location = new System.Drawing.Point(19, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(316, 392);
             this.groupBox1.TabIndex = 6;
@@ -310,13 +312,22 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Controls.Add(this.grdvitemsGroup);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.groupBox3);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(170, 416);
+            this.panel1.Size = new System.Drawing.Size(181, 416);
             this.panel1.TabIndex = 2;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.grdvitemsGroup);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Location = new System.Drawing.Point(13, 13);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(168, 391);
+            this.groupBox3.TabIndex = 0;
+            this.groupBox3.TabStop = false;
             // 
             // grdvitemsGroup
             // 
@@ -329,21 +340,21 @@
             this.grdvitemsGroup.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grdvitemsGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdvitemsGroup.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.grdvitemsGroup.Location = new System.Drawing.Point(5, 88);
+            this.grdvitemsGroup.Location = new System.Drawing.Point(4, 57);
             this.grdvitemsGroup.Name = "grdvitemsGroup";
             this.grdvitemsGroup.RowHeadersVisible = false;
-            this.grdvitemsGroup.Size = new System.Drawing.Size(161, 310);
-            this.grdvitemsGroup.TabIndex = 20;
+            this.grdvitemsGroup.Size = new System.Drawing.Size(161, 328);
+            this.grdvitemsGroup.TabIndex = 22;
             this.grdvitemsGroup.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdvitemsGroup_CellClick);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(9, 54);
+            this.label1.Location = new System.Drawing.Point(8, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(103, 31);
-            this.label1.TabIndex = 21;
+            this.label1.TabIndex = 23;
             this.label1.Text = "Groups";
             // 
             // AddOrder
@@ -366,7 +377,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdvitemsGroup)).EndInit();
             this.ResumeLayout(false);
 
@@ -398,6 +410,7 @@
         private System.Windows.Forms.DataGridViewButtonColumn clmRm;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DataGridView grdvitemsGroup;
         private System.Windows.Forms.Label label1;
     }

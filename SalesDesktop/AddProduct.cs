@@ -97,6 +97,10 @@ namespace SalesDesktop
             try
             {
                 dataGridViewProductGroup.DataSource = null;
+                if (dataGridViewProductGroup.Columns["dataGridViewDeleteButtonG"] != null)
+                {
+                    dataGridViewProductGroup.Columns.Remove("dataGridViewDeleteButtonG");
+                }
                 DataTable dt = access.select("select id,[name] from Item_Group where ISNULL(deleted,0)=0");
                 dt.Columns["id"].ColumnName = "ID";
                 dt.Columns["name"].ColumnName = "Name";
@@ -109,7 +113,7 @@ namespace SalesDesktop
                     Text = "delete",
                     ToolTipText = "DELETE",
                     UseColumnTextForButtonValue = true,
-                    Width=90
+                    Width = 90
                 });
             }
             catch (Exception ex)
@@ -122,6 +126,10 @@ namespace SalesDesktop
             try
             {
                 dataGridViewItems.DataSource = null;
+                if (dataGridViewItems.Columns["dataGridViewDeleteButtonI"] != null)
+                {
+                    dataGridViewItems.Columns.Remove("dataGridViewDeleteButtonI");
+                }
                 DataTable dt = access.select("select PRODUCT_ID,PRODUCT_NAME,PRODUCT_CODE,PRODUCT_PRICE from PRODUCTS where ISNULL(deleted,0)=0");
                 dt.Columns["PRODUCT_ID"].ColumnName = "ID";
                 dt.Columns["PRODUCT_NAME"].ColumnName = "Name";
@@ -136,7 +144,7 @@ namespace SalesDesktop
                     Text = "delete",
                     ToolTipText = "DELETE",
                     UseColumnTextForButtonValue = true,
-                    Width=90
+                    Width = 90
 
                 });
             }
@@ -152,6 +160,10 @@ namespace SalesDesktop
             {
                 if (e.ColumnIndex == dataGridViewProductGroup.Columns["dataGridViewDeleteButtonG"].Index)
                 {
+                    if (MessageBox.Show("Do you want to delete record ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                    {
+                        return;
+                    }
                     var id = dataGridViewProductGroup.Rows[e.RowIndex].Cells["id"].Value;
                     if (access.insertUpdateDelete("update Item_Group set deleted=1 where id='" + id + "'") > 0)
                     {
@@ -178,8 +190,12 @@ namespace SalesDesktop
             {
                 if (e.ColumnIndex == dataGridViewItems.Columns["dataGridViewDeleteButtonI"].Index)
                 {
+                    if (MessageBox.Show("Do you want to delete record ?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                    {
+                        return;
+                    }
                     var id = dataGridViewItems.Rows[e.RowIndex].Cells[1].Value;
-                    if(access.insertUpdateDelete("update PRODUCTS  set deleted=1 where PRODUCT_ID='" + id + "'") > 0)
+                    if (access.insertUpdateDelete("update PRODUCTS  set deleted=1 where PRODUCT_ID='" + id + "'") > 0)
                     {
                         MessageBox.Show("Deleted success fully", "deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         populateGroupDataGridView();

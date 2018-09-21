@@ -32,6 +32,7 @@ namespace SalesDesktop
 
             }
             populateItemDropdown();
+            grdvOrder.DataSource = null;
            
         }
 

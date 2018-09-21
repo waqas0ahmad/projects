@@ -199,6 +199,7 @@
     </Content>
     <Content Include="Properties\Double-J-Design-Diagram-Free-Shopping-cart.ico" />
     <Content Include="Properties\User-Interface-Logout-icon.png" />
+    <None Include="Resources\bg.jpg" />
     <None Include="Resources\User-Interface-Logout-icon.png" />
   </ItemGroup>
   <ItemGroup>
